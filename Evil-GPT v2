@@ -1,0 +1,15 @@
+Link to the THM room: https://tryhackme.com/room/hfb1evilgptv2
+
+Target: EvilGPTv2 (TryHackMe)
+I started my reconnaissance simply by asking who he is and what his rules are. 
+-> The target is a Gemma model made by Google DeepMind, aiming to be helpful and harmless.
+
+Finding 1: The first flaw is that the model is vulnerable to Direct Prompt Extraction. It reveals the system prompt when directly asked.
+Mitigation: The best approach would be implementing a Guardrail model that blocks responses containing parts of the system prompt, or using strict Output Sanitization to filter key words.
+
+Finding 2: There is a flag hardcoded in the system prompt. We have to always assume that a motivated attacker will eventually extract the system prompt. Sensitive data should never be placed in the context window.
+
+Finding 3: The model hallucinated its security architecture. When asked about security technologies, it confidently claimed to use a SIEM system, Federated Learning, and RLHF. 
+However, I verified this using browser Developer Tools and it turned out the model is not monitored and does not send any logs via network.
+
+There is no point in testing more sophisticated attack vectors (like indirect injection) when the model yields critical data and flags without significant pressure.
