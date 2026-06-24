@@ -5,11 +5,11 @@ I started my reconnaissance simply by asking who he is and what his rules are.
 -> The target is a Gemma model made by Google DeepMind, aiming to be helpful and harmless.
 
 Finding 1: The first flaw is that the model is vulnerable to Direct Prompt Extraction. It reveals the system prompt when directly asked.
-Mitigation: The best approach would be implementing a Guardrail model that blocks responses containing parts of the system prompt, or using strict Output Sanitization to filter key words.
+Mitigation: First there should be rule not to reveal the system prompt directly in the system prompt. The best approach would be implementing a Guardrail model that blocks responses containing parts of the system prompt, or using strict Output Sanitization to filter key words.
 
-Finding 2: There is a flag hardcoded in the system prompt. We have to always assume that a motivated attacker will eventually extract the system prompt. Sensitive data should never be placed in the context window.
+Finding 2: There is a flag (sensitive information) in the system prompt. We have to always assume that a enough motivated attacker will eventually extract the system prompt, in which there mustn't be any sensitive information.
 
 Finding 3: The model hallucinated its security architecture. When asked about security technologies, it confidently claimed to use a SIEM system, Federated Learning, and RLHF. 
-However, I verified this using browser Developer Tools and it turned out the model is not monitored and does not send any logs via network.
+However, I verified this using browser Developer Tools and it turned out the model is not monitored and does not send any logs via network. However there is a chance that user queries are saved somewhere for the security purposes.
 
 There is no point in testing more sophisticated attack vectors (like indirect injection) when the model yields critical data and flags without significant pressure.
