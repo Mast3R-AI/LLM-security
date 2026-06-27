@@ -1,0 +1,1 @@
+This folder contains comprehensive instructions, descriptions and thoughts about my journey of making my own homelab. The idea is to create an environment for testing and learning security of AI models. Additionally I will learn the agentic AI with Cursor and Claude Code. All the projects, problems and commands will be published in that folder.
