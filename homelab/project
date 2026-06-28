@@ -40,11 +40,31 @@ Step 2: I install docker on rpi using terminal. Commands from the official Docke
 
 Step 3: I make a container in Docker and pull the Ollama software.
 # For first I pulled NGINX serwer I played with it for a while. I was checking what I can actually do. I tested some docker commands for starting, stoping, deleting and pulling software.
+- sudo docker run -d -p 82:80 --name test nginx #-d for the program to run in the background
+- sudo docker ps
+- sudo docker stop test
+- sudo docker rm test #I did some additional tests on the website in order to understand more
+
 # Then I worked on Ollama:
 - sudo -i # I didn't want to write sudo everytime. I know that if that was a production server doing that would be dangerous but in my case that is completely fine.
-- Docker run -p 5000:11434 --name model_ai ollama/ollama
+- docker run -d -v ollama:/root/.ollama -p 5000:11434 --name model_ai ollama/ollama
+# now the docker says that there is no ollama installed and start pulling it from the internet. It takes a while to finish and in my case there were two failures with that process. The rpi was connected to weak internet and could not finish the process. Then I connected to better network and it solved the pulling issue.
 
+# now we can use:
+- dokcer exec -it model_ai /bin/bash # now we are in the container and have a direct communication with ollama
+- docker exec -it model_ai ollama list # now we are not entering the container and only communicating with ollama through the docker
+# I think that when you do a lot of commands the first way is more convenient. When I was testing the ollama and options that I got through:
+- ollama -h # I tested all th eoptions I got in the help menu and also tested some options further via:
+- ollama run -h
+- ollama create -h
 
+Step 4:
+# When inside the container and talking to ollama thanks to (docker exec -it model_ai /bin/bash)
+- ollama run llama3.2:1b
+# now ollama pulls the model from internet and runs it. It takes a while, but since I connected to better network it finishes without problems.
+# after a while we can see the interface to talk with the LLM: (>>)
+
+Step 5:
 
 
 
