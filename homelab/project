@@ -68,7 +68,19 @@ Step 5:
 # Now we can access the model through the IP address from different device. As I want to simulate the professional environment, I decided to make a server. Therefore I pulled the image of OpenWebUI into docker and launched it.
 - docker run -d -p 3000:8080 -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main # This is command from official website (https://docs.openwebui.com/getting-started/quick-start/)
 # Then I figured out, this is not that simple. The OpenWebUI has to communicate with Ollama and therefore it requires additional effort to connect those two containers
+# As I searched the internet, read the documentation and talked with ai, I crafted that command:
+- docker run -d --add-host=any_string:host-gateway -p 3000:8080 -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main
+# any_string is a literally any string and it does not change anything. host-gateway is reference to the internal IP address of the Docker. The OpenWebUI has to know exactly where to connect and via which IP address send messages.
+# the rest of the command stays the same. Now we have an established connection between two containers.
+# OpenWebUI is a UI for LLM's and it is very similar to the interface of Gemini and ChatGPT. It has more features connected with temperture of models and many other parameters which can define the creativity. In fact that is not working correctly becuse the local LLm deployed by us is just simply not changeable.
 
+Step 6:
+# I install Cursor on different device and add my own local model.
+# I go to the Models Tab and go to the API Keys section. Then I fill the Override OpenAI Base URL and place here url for Ollama model running on rpi.
+# In the end of the url I have to put the /v1 because it is a standard for OpenAI
+# Then I need to fill the OpenAI API Key field because it cannot be empty. I write arbitrary string.
+# When I did then over some time the Cursor deleted my own url and replaced it with the OpenAI's url. That is propably because when you submit the url or the Cursor tries to access the model then it tries the url and if it not works then replaces it.
+""" As I added my llama model to Cursor I
 
 
 
