@@ -65,7 +65,9 @@ Step 4:
 # after a while we can see the interface to talk with the LLM: (>>)
 
 Step 5:
-
+# Now we can access the model through the IP address from different device. As I want to simulate the professional environment, I decided to make a server. Therefore I pulled the image of OpenWebUI into docker and launched it.
+- docker run -d -p 3000:8080 -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main # This is command from official website (https://docs.openwebui.com/getting-started/quick-start/)
+# Then I figured out, this is not that simple. The OpenWebUI has to communicate with Ollama and therefore it requires additional effort to connect those two containers
 
 
 
