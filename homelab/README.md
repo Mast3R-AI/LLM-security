@@ -1,1 +1,3 @@
-This folder contains comprehensive instructions, descriptions and thoughts about my journey of making my own homelab. The idea is to create an environment for testing and learning security of AI models. Additionally I will learn the agentic AI with Cursor and Claude Code. All the projects, problems and commands will be published in that folder.
+This folder contains a project in Docker. My aim was to build homelab for testing security of LLM's. That is why I have build:
+- Docker environment with Ollama, OpenWebUI
+- Connected local LLM from rpi to Cursor on another device
