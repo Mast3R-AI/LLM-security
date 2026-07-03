@@ -18,4 +18,5 @@ I am currently developing my own local AI infrastructure using **Docker**. The m
 **Current Architecture:**
 * **Ollama in Docker:** Running a local LLM entirely within an isolated Docker container.
 * **Open-WebUI:** Making the model accessible through a user-friendly browser interface.
-* **Cursor Integration:** Directly connecting my local Ollama models to the Cursor IDE for AI-assisted programming without sending data to external APIs.\-> **[Go to Homelab Directory](./homelab)** to see the Docker-Compose files and setup instructions.
+* **Cursor Integration:** Directly connecting my local Ollama models to the Cursor IDE for AI-assisted programming without sending data to external APIs.\
+-> **[Go to Homelab Directory](./homelab)** to see the Docker-Compose files and setup instructions.
