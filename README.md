@@ -7,12 +7,12 @@ This repository is divided into two main areas of my focus:
 
 ---
 
-### 1. LLM Security Write-ups (`/write-ups`)
+#### 1. LLM Security Write-ups (`/write-ups`)
 This section contains my detailed write-ups and reports from LLM audits and behavioral analyses. I actively train my skills by testing models and completing challenges published on platforms like **TryHackMe** and **Huntr**.
--> **[Go to Write-ups Directory](./write-ups)** to read my audit reports on prompt injection, jailbreaking, and other LLM vulnerabilities.
+\n -> **[Go to Write-ups Directory](./write-ups)** to read my audit reports on prompt injection, jailbreaking, and other LLM vulnerabilities.
 
 
-### 2. Docker AI Homelab (`/homelab`)
+#### 2. Docker AI Homelab (`/homelab`)
 I am currently developing my own local AI infrastructure using **Docker**. The main goal of this project is to build a secure, local LLM environment.
 
 **Current Architecture:**
