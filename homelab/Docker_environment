@@ -80,7 +80,6 @@ Step 6:
 # In the end of the url I have to put the /v1 because it is a standard for OpenAI
 # Then I need to fill the OpenAI API Key field because it cannot be empty. I write arbitrary string.
 # When I did then over some time the Cursor deleted my own url and replaced it with the OpenAI's url. That is propably because when you submit the url or the Cursor tries to access the model then it tries the url and if it not works then replaces it.
-""" As I added my llama model to Cursor I
 
 
 
