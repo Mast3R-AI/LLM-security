@@ -3,12 +3,12 @@
 ### Target: AskNova the Stock Trading Agent (Huntr Bug Bounty Platform)
 ### Status: Reconnaissance & Guardrail Mapping Completed (Testing window closed)
 
---
+---
 
 ### 1. Executive Summary & Objective
 The primary objective of this assessment was to bypass the safety mechanisms of the AskNova agent to forcefully execute a stock transaction exceeding the legally defined x2 margin limit. While a full exploit was not achieved within the testing timeframe, extensive black-box reconnaissance revealed critical insights into the application's defensive architecture, specifically its dual-model Guardrail implementation and potential evasion vectors using token manipulation.
 
---
+---
 
 ### 2. Reconnaissance & Architecture Mapping
 #### 2.1. Guardrail Detection (Dual-Model Architecture)
@@ -20,7 +20,7 @@ Finding: This discrepancy strongly indicates the presence of an independent, int
 To verify the architecture, I tested the memory context of the main LLM after a rejected prompt. By asking the model to "repeat the last message," it echoed the last benign request, completely ignoring the rejected malicious attempt.
 Finding: The Guardrail model operates out-of-band and drops malicious requests entirely. They do not pollute the conversation history (context window), allowing an attacker to brute-force prompts without breaking the ongoing conversation flow or raising conversational suspicion.
 
---
+---
 
 ### 3. Evasion Techniques & Testing
 #### 3.1. Typosquatting & Obfuscation Resistance
@@ -37,7 +37,7 @@ Finding: The Guardrail model's tokenizer struggles to classify malicious intent 
 An unexpected architectural flaw was discovered during testing. Submitting the exact same malicious prompt immediately after it was blocked occasionally resulted in the prompt bypassing the Guardrail on the second or third attempt.
 Finding: This non-deterministic behavior suggests that either the Guardrail model has a high temperature setting, or the system uses a load-balanced cluster of evaluating models with slightly different alignments/weights.
 
---
+---
 
 ### 4. Conclusion & Future Work
 Although the time window closed before constructing a final payload to break the x2 margin logic, the assessment successfully mapped the defensive perimeter. The system relies heavily on a brittle semantic Guardrail that is susceptible to whitespace-based token smuggling and non-deterministic evaluation flaws. Future attacks on similar architectures should focus on multi-turn context poisoning combined with whitespace token splitting to fully bypass input sanitization.
