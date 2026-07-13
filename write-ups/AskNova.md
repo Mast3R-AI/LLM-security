@@ -1,7 +1,7 @@
 # Black-Box Security Analysis of AskNova Trading Agent Guardrails (Huntr Platform)
-## Date: July 3, 2026 - July 12, 2026
-## Target: AskNova the Stock Trading Agent (Huntr Bug Bounty Platform)
-## Status: Reconnaissance & Guardrail Mapping Completed (Testing window closed)
+### Date: July 3, 2026 - July 12, 2026
+### Target: AskNova the Stock Trading Agent (Huntr Bug Bounty Platform)
+### Status: Reconnaissance & Guardrail Mapping Completed (Testing window closed)
 
 ---
 
