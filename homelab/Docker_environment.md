@@ -1,5 +1,7 @@
-The project is created on Raspberry Pi 5:
+# The project is created on Raspberry Pi 5:
+
 CPU: Broadcom BCM2712 2.4GHz quad-core 64-bit Arm Cortex-A76
+
 RAM: 8GB
 
 ### Step 1: I install PI OS on the device. That is a Debian-based OS developed for Raspberry PI.
