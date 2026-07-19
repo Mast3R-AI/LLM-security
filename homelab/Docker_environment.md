@@ -4,6 +4,8 @@ CPU: Broadcom BCM2712 2.4GHz quad-core 64-bit Arm Cortex-A76
 
 RAM: 8GB
 
+---
+
 ### Step 1: I install PI OS on the device. That is a Debian-based OS developed for Raspberry PI.
 I install that OS using laptop with the MicroSD reader with 64GB of memory.
 
