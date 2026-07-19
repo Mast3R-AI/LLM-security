@@ -22,19 +22,19 @@ I install that OS using laptop with the MicroSD reader with 64GB of memory.
 
 *Add the repository to Apt sources:*
 - sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
->> Types: deb
+">> Types: deb"
 
->> URIs: https://download.docker.com/linux/debian
+">> URIs: https://download.docker.com/linux/debian"
 
->> Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
+">> Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")"
 
->> Components: stable
+">> Components: stable"
 
->> Architectures: $(dpkg --print-architecture)
+">> Architectures: $(dpkg --print-architecture)"
 
->> Signed-By: /etc/apt/keyrings/docker.asc
+">> Signed-By: /etc/apt/keyrings/docker.asc"
 
->> EOF
+">> EOF"
 - sudo apt update
 
 *Now as the repository is configured we can install the actual docker software*
