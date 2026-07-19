@@ -27,19 +27,19 @@ Step 2: I install docker on rpi using terminal. Commands from the official Docke
 >> EOF
 - sudo apt update
 
-#Now as the repository is configured we can install the actual docker software
+# Now as the repository is configured we can install the actual docker software
 - sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin\
 
 #For tests we can run the command
 - sudo docker run hello-world
-# which pulls the HelloWorld image for testing purposes. The image starts and immendiately is terminated. When we run command:
+# which pulls the HelloWorld image for testing purposes. The image starts and immediately is terminated. When we run command:
 - sudo docker ps
 # we won't see anything, because nothing is working in the background
 - sudo docker ps -a
 # now we can see that HelloWorld image was pulled and launched successfully. We can see that it was launched and then terminated.
 
 Step 3: I make a container in Docker and pull the Ollama software.
-# For first I pulled NGINX serwer I played with it for a while. I was checking what I can actually do. I tested some docker commands for starting, stoping, deleting and pulling software.
+# For first I pulled NGINX server I played with it for a while. I was checking what I can actually do. I tested some docker commands for starting, stoping, deleting and pulling software.
 - sudo docker run -d -p 82:80 --name test nginx #-d for the program to run in the background
 - sudo docker ps
 - sudo docker stop test
@@ -54,11 +54,12 @@ Step 3: I make a container in Docker and pull the Ollama software.
 - dokcer exec -it model_ai /bin/bash # now we are in the container and have a direct communication with ollama
 - docker exec -it model_ai ollama list # now we are not entering the container and only communicating with ollama through the docker
 # I think that when you do a lot of commands the first way is more convenient. When I was testing the ollama and options that I got through:
-- ollama -h # I tested all th eoptions I got in the help menu and also tested some options further via:
+- ollama -h # I tested all the options I got in the help menu and also tested some options further via:
 - ollama run -h
 - ollama create -h
 
 Step 4:
+# I chose llama model with 1b parameters because it is small enough that it can run smoothly and leave enough RAM for the Pi OS and Docker
 # When inside the container and talking to ollama thanks to (docker exec -it model_ai /bin/bash)
 - ollama run llama3.2:1b
 # now ollama pulls the model from internet and runs it. It takes a while, but since I connected to better network it finishes without problems.
